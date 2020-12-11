@@ -1,31 +1,31 @@
 <section>
-  <h2>Create New Post</h2>
+  <h2>Create A Cake Order</h2>
 
-  <form class="new-post-form">
+  <form class="new-order-form">
     <div>
-      <label for="post-title">Title</label>
-      <input type="text" id="post-title" name="post-title" />
+      <label for="order-title">Title</label>
+      <input type="text" id="order-title" name="order-title" />
     </div>
     <div>
-      <label for="post-url">Link</label>
-      <input id="post-url" name="post-url" />
+      <label for="order-url">Link</label>
+      <input id="order-url" name="order-url" />
     </div>
     <button type="submit" class="btn">Create</button>
   </form>
 </section>
 
-{{#if posts.length}}
+{{#if orders.length}}
 <section>
-  <h2>Your Posts</h2>
+  <h2>Your Orders</h2>
   <ol>
-    {{#each posts as |post|}}
+    {{#each orders as |order|}}
     <li>
-      {{> post-info post}}
-      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+      {{> order-info order}}
+      <a href="/dashboard/edit/{{order.id}}" class="edit-link">Edit your order</a>
     </li>
     {{/each}}
   </ol>
 </section>
 {{/if}}
 
-<script src="/javascript/add-post.js"></script>
+<script src="/javascript/add-order.js"></script>

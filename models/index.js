@@ -1,69 +1,69 @@
 // import all models
-const Post = require('./Post');
-const User = require('./User');
-const Vote = require('./Vote');
-const Comment = require('./Comment');
+const Order = require("./Order");
+const User = require("./User");
+const Vote = require("./Vote");
+const Comment = require("./Comment");
 
 // create associations
-User.hasMany(Post, {
-  foreignKey: 'user_id'
+User.hasMany(Order, {
+  foreignKey: "user_id",
 });
 
-Post.belongsTo(User, {
-  foreignKey: 'user_id',
-  onDelete: 'SET NULL'
+Order.belongsTo(User, {
+  foreignKey: "user_id",
+  onDelete: "SET NULL",
 });
 
-User.belongsToMany(Post, {
+User.belongsToMany(Order, {
   through: Vote,
-  as: 'voted_posts',
+  as: "voted_orders",
 
-  foreignKey: 'user_id',
-  onDelete: 'SET NULL'
+  foreignKey: "user_id",
+  onDelete: "SET NULL",
 });
 
-Post.belongsToMany(User, {
+Order.belongsToMany(User, {
   through: Vote,
-  as: 'voted_posts',
-  foreignKey: 'post_id',
-  onDelete: 'SET NULL'
+  as: "voted_orders",
+  foreignKey: "order_id",
+  onDelete: "SET NULL",
 });
 
 Vote.belongsTo(User, {
-  foreignKey: 'user_id',
-  onDelete: 'SET NULL'
+  foreignKey: "user_id",
+  onDelete: "SET NULL",
 });
 
-Vote.belongsTo(Post, {
-  foreignKey: 'post_id',
-  onDelete: 'SET NULL'
+Vote.belongsTo(Order, {
+  foreignKey: "order_id",
+  onDelete: "SET NULL",
 });
 
 User.hasMany(Vote, {
-  foreignKey: 'user_id'
+  foreignKey: "user_id",
 });
 
-Post.hasMany(Vote, {
-  foreignKey: 'post_id'
+Order.hasMany(Vote, {
+  foreignKey: "order_id",
 });
 
 Comment.belongsTo(User, {
-  foreignKey: 'user_id',
-  onDelete: 'SET NULL'
+  foreignKey: "user_id",
+  onDelete: "SET NULL",
 });
 
-Comment.belongsTo(Post, {
-  foreignKey: 'post_id',
-  onDelete: 'SET NULL'
+Comment.belongsTo(Order, {
+  foreignKey: "order_id",
+  onDelete: "SET NULL",
 });
 
 User.hasMany(Comment, {
-  foreignKey: 'user_id',
-  onDelete: 'SET NULL'
+  foreignKey: "user_id",
+  onDelete: "SET NULL",
 });
 
-Post.hasMany(Comment, {
-  foreignKey: 'post_id'
+Order.hasMany(Comment, {
+  foreignKey: "order_id",
 });
 
-module.exports = { User, Post, Vote, Comment };
+module.exports = { User, Order, Vote, Comment };
