@@ -1,37 +1,39 @@
 const { Model, DataTypes } = require('sequelize');
+
 const sequelize = require('../config/connection');
 
-class Vote extends Model {}
+class FlavourTag extends Model {}
 
-Vote.init(
+FlavourTag.init(
   {
     id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
-    user_id: {
+    flavour_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'user',
-        key: 'id'
-      }
+        model: 'flavour',
+        key: 'id',
+      },
     },
-    post_id: {
+    tag_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'post',
-        key: 'id'
-      }
-    }
+        model: 'tag',
+        key: 'id',
+      },
+    },
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'vote'
+    modelName: 'flavour_tag',
   }
 );
 
-module.exports = Vote;
+module.exports = FlavourTag;
