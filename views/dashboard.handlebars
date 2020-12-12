@@ -1,13 +1,14 @@
 <section>
-  <h2>Create New Post</h2>
+  <h2>Order your Cakes
+  </h2>
 
   <form class="new-post-form">
     <div>
-      <label for="post-title">Title</label>
+      <label for="post-title">Name</label>
       <input type="text" id="post-title" name="post-title" />
     </div>
     <div>
-      <label for="post-url">Link</label>
+      <label for="post-url">Order Info</label>
       <input id="post-url" name="post-url" />
     </div>
     <button type="submit" class="btn">Create</button>
@@ -16,12 +17,13 @@
 
 {{#if posts.length}}
 <section>
-  <h2>Your Posts</h2>
+  <h2>Your Orders
+  </h2>
   <ol>
     {{#each posts as |post|}}
     <li>
       {{> post-info post}}
-      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit Order</a>
     </li>
     {{/each}}
   </ol>
