@@ -1,0 +1,24 @@
+{
+  "name": "cake-app",
+  "version": "1.0.0",
+  "description": "an app to order cakes from.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lylylong/cake-app.git"
+  },
+  "author": "brie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lylylong/cake-app/issues"
+  },
+  "homepage": "https://github.com/lylylong/cake-app#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.3.5"
+  }
+}

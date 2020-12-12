@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS newsfeed_db;
+DROP DATABASE IF EXISTS cake_app;
 
-CREATE DATABASE newsfeed_db;
+CREATE DATABASE cake_app;
