@@ -1,33 +1,59 @@
 <section>
+<<<<<<< HEAD
   <h2>Order your Cakes
   </h2>
+=======
+  <h2>Create A Cake Order</h2>
+>>>>>>> e02694bab5c96cb6802f8616f45a0d2485c15929
 
-  <form class="new-post-form">
+  <form class="new-order-form">
     <div>
+<<<<<<< HEAD
       <label for="post-title">Name</label>
       <input type="text" id="post-title" name="post-title" />
     </div>
     <div>
       <label for="post-url">Order Info</label>
       <input id="post-url" name="post-url" />
+=======
+      <label for="order-title">Title</label>
+      <input type="text" id="order-title" name="order-title" />
+    </div>
+    <div>
+      <label for="order-url">Link</label>
+      <input id="order-url" name="order-url" />
+>>>>>>> e02694bab5c96cb6802f8616f45a0d2485c15929
     </div>
     <button type="submit" class="btn">Create</button>
   </form>
 </section>
 
-{{#if posts.length}}
+{{#if orders.length}}
 <section>
+<<<<<<< HEAD
   <h2>Your Orders
   </h2>
+=======
+  <h2>Your Orders</h2>
+>>>>>>> e02694bab5c96cb6802f8616f45a0d2485c15929
   <ol>
-    {{#each posts as |post|}}
+    {{#each orders as |order|}}
     <li>
+<<<<<<< HEAD
       {{> post-info post}}
       <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit Order</a>
+=======
+      {{> order-info order}}
+      <a href="/dashboard/edit/{{order.id}}" class="edit-link">Edit your order</a>
+>>>>>>> e02694bab5c96cb6802f8616f45a0d2485c15929
     </li>
     {{/each}}
   </ol>
 </section>
 {{/if}}
 
+<<<<<<< HEAD
 <script src="/public/javascript/add-post.js"></script>
+=======
+<script src="/javascript/add-order.js"></script>
+>>>>>>> e02694bab5c96cb6802f8616f45a0d2485c15929
