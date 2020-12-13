@@ -1,19 +1,20 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
-const { Order, User, Comment, Vote } = require("../models");
+const { Post, User, Comment, Vote } = require("../models");
 
-// get all orders for homepage
+// get all posts for homepage
 router.get("/", (req, res) => {
   console.log("======================");
-  Order.findAll({
+  Post.findAll({
+    order: [["created_at", "DESC"]],
     attributes: [
       "id",
-      "order_url",
+      "pickup_date",
       "title",
       "created_at",
       [
         sequelize.literal(
-          "(SELECT COUNT(*) FROM vote WHERE order.id = vote.order_id)"
+          "(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)"
         ),
         "vote_count",
       ],
@@ -21,7 +22,7 @@ router.get("/", (req, res) => {
     include: [
       {
         model: Comment,
-        attributes: ["id", "comment_text", "order_id", "user_id", "created_at"],
+        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
         include: {
           model: User,
           attributes: ["username"],
@@ -33,11 +34,11 @@ router.get("/", (req, res) => {
       },
     ],
   })
-    .then((dbOrderData) => {
-      const orders = dbOrderData.map((order) => order.get({ plain: true }));
+    .then((dbPostData) => {
+      const posts = dbPostData.map((post) => post.get({ plain: true }));
 
       res.render("homepage", {
-        orders,
+        posts,
         loggedIn: req.session.loggedIn,
       });
     })
@@ -47,20 +48,20 @@ router.get("/", (req, res) => {
     });
 });
 
-// get single order
-router.get("/order/:id", (req, res) => {
-  Order.findOne({
+// get single post
+router.get("/post/:id", (req, res) => {
+  Post.findOne({
     where: {
       id: req.params.id,
     },
     attributes: [
       "id",
-      "order_url",
+      "pickup_date",
       "title",
       "created_at",
       [
         sequelize.literal(
-          "(SELECT COUNT(*) FROM vote WHERE order.id = vote.order_id)"
+          "(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)"
         ),
         "vote_count",
       ],
@@ -68,7 +69,7 @@ router.get("/order/:id", (req, res) => {
     include: [
       {
         model: Comment,
-        attributes: ["id", "comment_text", "order_id", "user_id", "created_at"],
+        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
         include: {
           model: User,
           attributes: ["username"],
@@ -80,16 +81,16 @@ router.get("/order/:id", (req, res) => {
       },
     ],
   })
-    .then((dbOrderData) => {
-      if (!dbOrderData) {
-        res.status(404).json({ message: "No order found with this id" });
+    .then((dbPostData) => {
+      if (!dbPostData) {
+        res.status(404).json({ message: "No post found with this id" });
         return;
       }
 
-      const order = dbOrderData.get({ plain: true });
+      const post = dbPostData.get({ plain: true });
 
-      res.render("single-order", {
-        order,
+      res.render("single-post", {
+        post,
         loggedIn: req.session.loggedIn,
       });
     })

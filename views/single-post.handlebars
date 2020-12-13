@@ -1,4 +1,4 @@
-{{> order-info order}}
+{{> post-info post}}
 
 {{#if loggedIn}}
 <form class="comment-form">
@@ -8,12 +8,12 @@
 
   <div>
     <button type="submit">add comment</button>
-    <button type="button" class="upvote-btn">upvote</button>
+    <button type="button" class="upvote-btn">like ♥ </button>
   </div>
 </form>
 {{/if}}
 
-{{> comments order.comments}}
+{{> comments post.comments}}
 
 {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>

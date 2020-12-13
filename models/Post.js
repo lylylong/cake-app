@@ -1,24 +1,24 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
-// create our Order model
-class Order extends Model {
+// create our Post model
+class Post extends Model {
   static upvote(body, models) {
     return models.Vote.create({
       user_id: body.user_id,
-      order_id: body.order_id,
+      post_id: body.post_id,
     }).then(() => {
-      return Order.findOne({
+      return Post.findOne({
         where: {
-          id: body.order_id,
+          id: body.post_id,
         },
         attributes: [
           "id",
-          "order_url",
+          "pickup_date",
           "title",
           "created_at",
           [
             sequelize.literal(
-              "(SELECT COUNT(*) FROM vote WHERE order.id = vote.order_id)"
+              "(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)"
             ),
             "vote_count",
           ],
@@ -29,7 +29,7 @@ class Order extends Model {
             attributes: [
               "id",
               "comment_text",
-              "order_id",
+              "post_id",
               "user_id",
               "created_at",
             ],
@@ -44,8 +44,8 @@ class Order extends Model {
   }
 }
 
-// create fields/columns for Order model
-Order.init(
+// create fields/columns for Post model
+Post.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -57,12 +57,9 @@ Order.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    order_url: {
+    pickup_date: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        isURL: true,
-      },
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -76,8 +73,8 @@ Order.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: "order",
+    modelName: "post",
   }
 );
 
-module.exports = Order;
+module.exports = Post;

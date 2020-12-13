@@ -1,5 +1,5 @@
 {
-  "name": "cake-app",
+  "name": "project-2-testing",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lylylong/cake-app.git"
+    "url": "git+https://github.com/lylylong/project-2-testing.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/lylylong/cake-app/issues"
+    "url": "https://github.com/lylylong/project-2-testing/issues"
   },
-  "homepage": "https://github.com/lylylong/cake-app#readme",
+  "homepage": "https://github.com/lylylong/project-2-testing#readme",
   "dependencies": {
     "bcrypt": "^5.0.0",
     "connect-session-sequelize": "^7.0.4",

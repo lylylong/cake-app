@@ -1,24 +1,24 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
-const { Order, User, Comment, Vote } = require("../models");
+const { Post, User, Comment, Vote } = require("../models");
 const withAuth = require("../utils/auth");
 
-// get all orders for dashboard
+// get all posts for dashboard
 router.get("/", withAuth, (req, res) => {
   console.log(req.session);
   console.log("======================");
-  Order.findAll({
+  Post.findAll({
     where: {
       user_id: req.session.user_id,
     },
     attributes: [
       "id",
-      "order_url",
+      "pickup_date",
       "title",
       "created_at",
       [
         sequelize.literal(
-          "(SELECT COUNT(*) FROM vote WHERE order.id = vote.order_id)"
+          "(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)"
         ),
         "vote_count",
       ],
@@ -26,7 +26,7 @@ router.get("/", withAuth, (req, res) => {
     include: [
       {
         model: Comment,
-        attributes: ["id", "comment_text", "order_id", "user_id", "created_at"],
+        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
         include: {
           model: User,
           attributes: ["username"],
@@ -38,9 +38,9 @@ router.get("/", withAuth, (req, res) => {
       },
     ],
   })
-    .then((dbOrderData) => {
-      const orders = dbOrderData.map((order) => order.get({ plain: true }));
-      res.render("dashboard", { orders, loggedIn: true });
+    .then((dbPostData) => {
+      const posts = dbPostData.map((post) => post.get({ plain: true }));
+      res.render("dashboard", { posts, loggedIn: true });
     })
     .catch((err) => {
       console.log(err);
@@ -49,15 +49,15 @@ router.get("/", withAuth, (req, res) => {
 });
 
 router.get("/edit/:id", withAuth, (req, res) => {
-  Order.findByPk(req.params.id, {
+  Post.findByPk(req.params.id, {
     attributes: [
       "id",
-      "order_url",
+      "pickup_date",
       "title",
       "created_at",
       [
         sequelize.literal(
-          "(SELECT COUNT(*) FROM vote WHERE order.id = vote.order_id)"
+          "(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)"
         ),
         "vote_count",
       ],
@@ -65,7 +65,7 @@ router.get("/edit/:id", withAuth, (req, res) => {
     include: [
       {
         model: Comment,
-        attributes: ["id", "comment_text", "order_id", "user_id", "created_at"],
+        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
         include: {
           model: User,
           attributes: ["username"],
@@ -77,12 +77,12 @@ router.get("/edit/:id", withAuth, (req, res) => {
       },
     ],
   })
-    .then((dbOrderData) => {
-      if (dbOrderData) {
-        const order = dbOrderData.get({ plain: true });
+    .then((dbPostData) => {
+      if (dbPostData) {
+        const post = dbPostData.get({ plain: true });
 
-        res.render("edit-Order", {
-          order,
+        res.render("edit-post", {
+          post,
           loggedIn: true,
         });
       } else {
