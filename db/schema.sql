@@ -1,3 +1,5 @@
 DROP DATABASE IF EXISTS cake_db;
 
 CREATE DATABASE cake_db;
+
+USE cake_db;
