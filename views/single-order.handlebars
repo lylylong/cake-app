@@ -1,4 +1,4 @@
-{{> post-info post}}
+{{> order-info order}}
 
 {{#if loggedIn}}
 <form class="comment-form">
@@ -13,9 +13,9 @@
 </form>
 {{/if}}
 
-{{> comments post.comments}}
+{{> comments order.comments}}
 
 {{#if loggedIn}}
-<script src="/javascript/comment.js"></script>
-<script src="/javascript/upvote.js"></script>
+<script src="/public/javascript/comment.js"></script>
+<script src="/public/javascript/upvote.js"></script>
 {{/if}}
