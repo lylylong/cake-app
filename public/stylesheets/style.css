@@ -94,6 +94,10 @@ main {
   padding: 2% 4%;
 }
 
+.order-ol {
+  padding-inline-start: 3%;
+}
+
 .btn-no-style {
   background: none;
   border: none;
@@ -178,4 +182,8 @@ footer {
   justify-content: center;
   padding: 1%;
   font-size: 110%;
+}
+
+.custom-select {
+  margin-bottom: 5px;
 }

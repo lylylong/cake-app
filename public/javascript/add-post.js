@@ -1,8 +1,21 @@
 async function newFormHandler(event) {
   event.preventDefault();
 
-  const title = document.querySelector('input[name="post-title"]').value;
-  const pickup_date = document.querySelector('input[name="post-url"]').value;
+  const orderFlavour = document.querySelector('select[name="flavour"]').value;
+  const orderCategory = document.querySelector('select[name="category"]').value;
+  // const title = document.querySelector('input[name="post-title"]').value;
+  const title = orderFlavour + " " + orderCategory;
+  $("#modalDueDate").datepicker();
+  const pickup_date = document.querySelector('input[name="pickup-date"]').value;
+
+  if (
+    orderFlavour === "Flavour Menu" ||
+    orderCategory === "Category Menu" ||
+    pickup_date === ""
+  ) {
+    alert("Please double check your order details!");
+    return;
+  }
 
   const response = await fetch(`/api/posts`, {
     method: "POST",
@@ -25,3 +38,7 @@ async function newFormHandler(event) {
 document
   .querySelector(".new-post-form")
   .addEventListener("submit", newFormHandler);
+
+$("#pickup-date").datepicker({
+  minDate: 0,
+});
