@@ -6,7 +6,7 @@ header,
 }
 
 #intro { 
-  background: url("/images/frontpage.jpg")no-repeat center fixed; 
+  background: url("../assets/images/layoutpng.png")no-repeat center fixed; 
   -webkit-background: cover; 
   -moz-background-size: cover; 
   -o-background-size: cover; 
