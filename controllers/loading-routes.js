@@ -3,16 +3,21 @@ const sequelize = require("../config/connection");
 // const { Post, User, Comment, Vote } = require("../models");
 
 router.get("/", (req, res) => {
-  res.render("loading");
+  if (req.session.loggedIn) {
+    res.render("loading", { loggedIn: true });
+    return;
+  }
+
+  res.render("loading", { loggedIn: false });
 });
 
-// router.get("/login", (req, res) => {
-//   if (req.session.loggedIn) {
-//     res.redirect("/");
-//     return;
-//   }
+router.get("/login", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/dashboard");
+    return;
+  }
 
-//   res.render("login");
-// });
+  res.render("login");
+});
 
 module.exports = router;
