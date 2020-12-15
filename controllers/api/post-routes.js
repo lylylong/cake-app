@@ -3,11 +3,11 @@ const sequelize = require("../../config/connection");
 const { Post, User, Comment, Vote } = require("../../models");
 // const withAuth = require("../../utils/auth");
 
-// get all users
+// get all posts
 router.get("/", (req, res) => {
   console.log("======================");
   Post.findAll({
-    // post: [["created_at", "DESC"]],
+    order: [["created_at", "DESC"]],
     attributes: [
       "id",
       "pickup_date",
@@ -129,6 +129,7 @@ router.put(
     Post.update(
       {
         title: req.body.title,
+        pickup_date: req.body.pickup_date,
       },
       {
         where: {

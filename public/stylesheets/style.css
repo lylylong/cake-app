@@ -70,9 +70,9 @@ form label {
 
 .wrapper {
   width: 100%;
-  min-height: 100%;
+  min-height: 92%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 50px auto;
   display: flex;
   flex-direction: column;
 }
@@ -116,12 +116,34 @@ main {
   color: #3486eb;
 }
 
+.submit-btn {
+  background-color: #225ca3;
+  padding: 10px;
+}
+
+.submit-btn:hover {
+  background-color: #3486eb;
+  padding: 10px;
+}
+
+.edit-btn {
+  background-color: #06b449;
+  padding: 10px;
+}
+
+.edit-btn:hover {
+  background-color: #4ce286;
+  padding: 10px;
+}
+
 .delete-post-btn {
   background-color: #d41414;
+  padding: 10px;
 }
 
 .delete-post-btn:hover {
   background-color: #ff643d;
+  padding: 10px;
 }
 
 .post {
@@ -177,6 +199,7 @@ main {
 }
 
 footer {
+  height: 5%;
   border-top: 1px solid #ccc;
   display: flex;
   justify-content: center;
@@ -186,4 +209,18 @@ footer {
 
 .custom-select {
   margin-bottom: 5px;
+}
+
+.current-order {
+  color: #7d7d7d;
+  font-size: medium;
+}
+
+.hero {
+  height: 500px;
+  width: 100%;
+  margin-bottom: 25px;
+  background-image: url("../assets/images/homepage_idea.png");
+  background-size: cover;
+  background-position: center;
 }
