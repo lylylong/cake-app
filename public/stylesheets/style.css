@@ -12,3 +12,27 @@ header,
   -o-background-size: cover; 
   background-size: cover;
 }
+
+header a { 
+  color: hotpink;
+  text-decoration: white;
+  background-size: cover;
+  
+}
+
+.head a:hover { 
+  background-color: black;
+}
+
+.card-deck { 
+  font-style: inherit: 
+  font-size: 15px; 
+  color: black;
+  
+
+}
+
+.card-deck h5 { 
+  font-size: 24px;
+  color: hotpink;
+}

@@ -30,7 +30,7 @@
           <a class="nav-link" href="#">Order</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Gallery</a>
+          <a class="nav-link" href="#Gallery">Gallery</a>
         </li>
         
       </ul>
@@ -43,7 +43,8 @@
 </div>
 
 
-<body>
+
+
   <div class="wrapper">
     <header>
       <h1>
@@ -69,6 +70,36 @@
   {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
   {{/if}}
+
+
+
+  <div class="card-deck" id="Gallery">
+  <div class="card">
+    <img src="./assets/images/VANILLA.png" class="card-img-top" alt="Vanilla cake">
+    <div class="card-body">
+      <h5 class="card-title">Vanilla Cake </h5>
+      <p class="card-text">A yummy Vanila birthday cake theme. Very rich and delicous and loads of flavour.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="./assets/images/chocolate.png" class="card-img-top" alt="Chocolate Cake">
+    <div class="card-body">
+      <h5 class="card-title">Chocolate Cake</h5>
+      <p class="card-text">Rich chocolate icing, this is our number 1 seller..</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="./assets/images/strawberry.png" class="card-img-top" alt="Strawberry Cake">
+    <div class="card-body">
+      <h5 class="card-title">Strawberry Cake</h5>
+      <p class="card-text">The perfect cake to celebrate any occasion.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+</div>
+
 </body>
 
 </html>
