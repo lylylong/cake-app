@@ -1,42 +1,29 @@
 <article>
   <a href="/dashboard"> &larr; Back to dashboard</a>
   <h2 class="pt-3">
-    Edit Your Order <span class="current-order">({{post.title}})</span>
+    Edit Your Order: <span class="current-order">{{post.title}}</span>
   </h2>
-
-
 
   <form class="edit-post-form">
 
-    {{!-- <div>
-      <input name="post-title" type="text" value="{{post.title}}" />
-      <span>({{format_url post.pickup_date}})</span>
-    </div> --}}
-
     <form class="container edit-post-form">
       <div class="row align-items-start">
-        <div class="col">
-          <label for="post-title" class="mt-5">Change Cake Flavour</label>
+        <div class="col-md-4">
+          <label for="post-title" class="mt-4">Change Cake Flavour</label>
           {{!-- <input type="text" id="post-title" name="post-title" /> --}}
           <select class="browser-default custom-select" name="flavour" id="flavour">
-            <option selected>Flavour Menu</option>
+            <option selected>Select Flavour</option>
             <option value=" Chocolate">Chocolate</option>
             <option value="Vanilla">Vanilla</option>
             <option value="Strawberry">Strawberry</option>
-            <option value="Matcha">Matcha</option>
+            <option value="Matcha">Butterscotch</option>
           </select>
-          <div class="mt-5">
-            Order created on {{format_date post.created_at}}
-            <br>
-            {{post.vote_count}} {{format_plural "like" post.vote_count}}
-            |
-            <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
-          </div>
+
         </div>
-        <div class="col">
-          <label for="post-title" class="mt-5">Change Cake Category</label>
+        <div class="col-md-4">
+          <label for="post-title" class="mt-4">Change Cake Category</label>
           <select class="browser-default custom-select" name="category" id="category">
-            <option selected>Category Menu</option>
+            <option selected>Select Category</option>
             <option value=" Cheesecake">Cheesecake</option>
             <option value="Mille Crepe">Mille Crepe</option>
             <option value="Swiss Roll">Swiss Roll</option>
@@ -44,40 +31,31 @@
           </select>
         </div>
 
-        <div class="col form-group">
-          <label for="pickup-date" class="mt-5">Pick-up Date</label>
-          <input type="text" id="pickup-date" name="pickup-date" placeholder="{{post.pickup_date}}" autocomplete="off"
+        <div class="col-md-4 form-group">
+          <label for="pickup-date" class="mt-4">Pick-up Date</label>
+          <input type="text" id="pickup-date" name="pickup-date" placeholder="Select Pickup Date" autocomplete="off"
             class="custom-select" />
-          <button type="submit" class="edit-btn mt-5">Save Changes</button>
-          <button type="button" class="delete-post-btn mt-5">Delete Order</button>
+        </div>
+      </div>
+      <div class="row">
+        <button type="submit" class="edit-btn mt-2">Save Changes</button>
+        <button type="button" class="delete-post-btn mt-2">Delete Order</button>
+      </div>
+      <div class="row">
+        <div class="order-sum mt-2">
+          Order created on {{format_date post.created_at}}
+          <br>
+          {{post.vote_count}} {{format_plural "like" post.vote_count}}
+          |
+          <a href="/gallery/post/{{post.id}}">{{post.comments.length}}
+            {{format_plural "comment" post.comments.length}}</a>
         </div>
       </div>
     </form>
 
-    {{!-- <div>
-      Order created on {{format_date post.created_at}}
-      |
-      {{post.vote_count}} {{format_plural "point" post.vote_count}}
-      |
-      <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
-    </div> --}}
-    {{!-- <button type="submit">Save Changes</button>
-    <button type="button" class="delete-post-btn">Delete Order</button> --}}
   </form>
 
 </article>
-
-{{!-- <form class="comment-form">
-  <div>
-    <textarea name="comment-body"></textarea>
-  </div>
-
-  <div>
-    <button type="submit">add comment</button>
-  </div>
-</form> --}}
-
-{{!-- {{> comments post.comments}} --}}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>

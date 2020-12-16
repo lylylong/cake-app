@@ -1,6 +1,6 @@
 <article class="post">
   <div class="title">
-    <a href="/post/{{id}}">{{title}}</a>
+    <a href="/gallery/post/{{id}}">{{title}}</a>
     <span>(pickup date: {{pickup_date}})</span>
   </div>
   <div class="meta">
@@ -8,9 +8,9 @@
 
     Order created on {{format_date created_at}} by {{user.username}}
     |
-    <a href="/post/{{id}}">{{vote_count}} {{format_plural "like" vote_count}}</a>
+    <a href="/gallery/post/{{id}}">{{vote_count}} {{format_plural "like" vote_count}}</a>
     |
-    <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+    <a href="/gallery/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
 
 
   </div>

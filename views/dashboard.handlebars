@@ -3,19 +3,19 @@
 
   <form class="container new-post-form">
     <div class="row align-items-start">
-      <div class="col">
-        <label for="post-title">Choose Cake Flavour</label>
+      <div class="col-md-4">
+        <label for="post-title" class="mt-2">Choose Cake Flavour</label>
         {{!-- <input type="text" id="post-title" name="post-title" /> --}}
         <select class="browser-default custom-select" name="flavour" id="flavour">
           <option selected>Flavour Menu</option>
           <option value="Chocolate">Chocolate</option>
           <option value="Vanilla">Vanilla</option>
           <option value="Strawberry">Strawberry</option>
-          <option value="Matcha">Matcha</option>
+          <option value="Matcha">Butterscotch</option>
         </select>
       </div>
-      <div class="col">
-        <label for="post-title">Choose Cake Category</label>
+      <div class="col-md-4">
+        <label for="post-title" class="mt-2">Choose Cake Category</label>
         <select class="browser-default custom-select" name="category" id="category">
           <option selected>Category Menu</option>
           <option value="Cheesecake">Cheesecake</option>
@@ -25,20 +25,15 @@
         </select>
       </div>
 
-      {{!-- <div class="col">
-        <label for="pickup-date">Pick-up Date</label>
-        <input id="pickup-date" name="pickup-date" />
-        <button type="submit" class="btn">Submit Order</button>
-      </div> --}}
-
-
-
-      <div class="col form-group">
-        <label for="pickup-date">Pick-up Date</label>
+      <div class="col-md-4 form-group">
+        <label for="pickup-date" class="mt-2">Pick-up Date</label>
         <input type="text" id="pickup-date" name="pickup-date" placeholder="mm/dd/yyyy" autocomplete="off"
-          class="custom-select" />
-        <button type="submit" class="submit-btn mt-5">Submit Order</button>
+          class="browser-default custom-select" />
+        {{!-- <button type="submit" class="submit-btn mt-5">Submit Order</button> --}}
       </div>
+    </div>
+    <div class="row">
+      <button type="submit" class="submit-btn mt-2">Submit Order</button>
     </div>
   </form>
 
@@ -46,7 +41,7 @@
 
 {{#if posts.length}}
 <section>
-  <h2 class="order-title">Your History Orders</h2>
+  <h2 class="order-title mt-5">Your History Orders</h2>
   <ol class="order-ol">
     {{#each posts as |post|}}
     <li>
