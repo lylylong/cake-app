@@ -1,12 +1,12 @@
 <article class="post">
   <div class="title">
     <a href="/gallery/post/{{id}}">{{title}}</a>
-    <span>(pickup date: {{pickup_date}})</span>
+    <span>(pickup date: {{format_date_2 pickup_date}})</span>
   </div>
   <div class="meta">
 
 
-    Order created on {{format_date created_at}} by {{user.username}}
+    Order created on {{format_date_1 created_at}} by {{user.username}}
     |
     <a href="/gallery/post/{{id}}">{{vote_count}} {{format_plural "like" vote_count}}</a>
     |

@@ -262,3 +262,16 @@ footer {
   width: 20rem;
   height: 2.5rem;
 }
+
+.text-purple {
+  color: #9c27b0;
+}
+.bg-purple {
+  background-color: #9c27b0;
+}
+.text-pink {
+  color: #ec409e;
+}
+.bg-pink {
+  background-color: #ec409e;
+}
