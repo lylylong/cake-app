@@ -1,7 +1,7 @@
 <article>
   <a href="/dashboard"> &larr; Back to dashboard</a>
   <h2 class="pt-3">
-    Edit Your Order: <span class="current-order">{{post.title}}</span>
+    Edit Your Order <span class="current-order">(Previous: {{post.title}})</span>
   </h2>
 
   <form class="edit-post-form">
@@ -36,7 +36,7 @@
         <div class="col-md-4 form-group">
           <label for="pickup-date" class="mt-4">Pick-up Date</label>
           <input type="text" id="pickup-date" name="pickup-date" placeholder="Select Pickup Date" autocomplete="off"
-            class="custom-select" />
+            class="custom-select" value="{{post.pickup_date}}" />
         </div>
       </div>
       <div class="row">
