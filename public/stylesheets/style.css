@@ -2,7 +2,8 @@
   box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
   height: 100%;
   padding: 0;
   margin: 0;
@@ -14,7 +15,7 @@ a {
   text-decoration: none;
   color: #225ca3;
   font-weight: bold;
-  transition: color .1s;
+  transition: color 0.1s;
 }
 
 a:hover {
@@ -24,10 +25,10 @@ a:hover {
 button {
   background-color: #225ca3;
   border: 0;
-  padding: 1%;
+  padding: 10px 16px;
   color: white;
   font-weight: bold;
-  transition: background-color .1s;
+  transition: background-color 0.1s;
   cursor: pointer;
   border-radius: 5px;
 }
@@ -37,17 +38,19 @@ button:hover {
 }
 
 .post-list {
-  margin: 0;
+  margin: 0 20px;
   padding: 0;
 }
 
-textarea, input {
-  padding: .5%;
+textarea,
+input {
+  padding: 0.5%;
   border-radius: 5px;
   border: 1px solid #ccc;
 }
 
-textarea:focus, input:focus {
+textarea:focus,
+input:focus {
   outline: none;
   border: 1px solid #3486eb;
 }
@@ -67,9 +70,9 @@ form label {
 
 .wrapper {
   width: 100%;
-  min-height: 100%;
+  min-height: 92%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 50px auto;
   display: flex;
   flex-direction: column;
 }
@@ -91,6 +94,10 @@ main {
   padding: 2% 4%;
 }
 
+.order-ol {
+  padding-inline-start: 3%;
+}
+
 .btn-no-style {
   background: none;
   border: none;
@@ -100,7 +107,7 @@ main {
   color: #225ca3;
   font-size: 100%;
   font-weight: bold;
-  transition: color .1s;
+  transition: color 0.1s;
   margin-left: 16px;
 }
 
@@ -109,12 +116,50 @@ main {
   color: #3486eb;
 }
 
+.submit-btn {
+  background-color: #225ca3;
+  padding: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.submit-btn:hover {
+  background-color: #3486eb;
+  padding: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.edit-btn {
+  background-color: #06b449;
+  padding: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.edit-btn:hover {
+  background-color: #4ce286;
+  padding: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
 .delete-post-btn {
   background-color: #d41414;
+  padding: 10px 16px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .delete-post-btn:hover {
   background-color: #ff643d;
+  padding: 10px 16px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.order-sum {
+  margin-left: 15px;
 }
 
 .post {
@@ -130,16 +175,20 @@ main {
 
 .edit-link {
   display: block;
+  color: #06b449;
   margin: -1.5% 0 2% 0;
+}
+.edit-link:hover {
+  color: #4ce286;
 }
 
 .upvote-btn {
-  background-color: #197d0f;
-  transition: background-color .1s;
+  background-color: #bd31a5;
+  transition: background-color 0.1s;
 }
 
 .upvote-btn:hover {
-  background-color: #1f9c13;
+  background-color: #da4cc2;
 }
 
 .comment-form {
@@ -157,12 +206,8 @@ main {
 
 .comment .meta {
   font-size: 90%;
-  margin-bottom: .5%;
-  opacity: .6;
-}
-
-.new-post-form input {
-  width: 300px;
+  margin-bottom: 0.5%;
+  opacity: 0.6;
 }
 
 .edit-post-form {
@@ -170,9 +215,63 @@ main {
 }
 
 footer {
+  height: 5%;
   border-top: 1px solid #ccc;
   display: flex;
   justify-content: center;
   padding: 1%;
   font-size: 110%;
+}
+
+.custom-select {
+  margin-bottom: 5px;
+}
+
+.current-order {
+  color: #7d7d7d;
+  font-size: medium;
+}
+
+.hero {
+  height: 500px;
+  width: 100%;
+  margin-bottom: 25px;
+  background-image: url("../assets/images/homepage_idea.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-left {
+  height: 450px;
+  width: 100%;
+  margin-bottom: 25px;
+  background-image: url("../assets/images/homepage_slogan.png");
+  background-size: cover;
+  background-position: center;
+}
+.hero-right {
+  height: 450px;
+  width: 100%;
+  margin-bottom: 25px;
+  background-image: url("../assets/images/homepage_cake_revised.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.login-input {
+  width: 20rem;
+  height: 2.5rem;
+}
+
+.text-purple {
+  color: #9c27b0;
+}
+.bg-purple {
+  background-color: #9c27b0;
+}
+.text-pink {
+  color: #ec409e;
+}
+.bg-pink {
+  background-color: #ec409e;
 }

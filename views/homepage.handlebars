@@ -1,7 +1,41 @@
-<ol class="post-list">
-  {{#each posts as |post|}}
-  <li>
-    {{> post-info post }}
-  </li>
-  {{/each}}
-</ol>
+<div class="row">
+  <div class="card-deck" id="Gallery">
+    <div class="card row">
+      <img src="./assets/images/VANILLA.png" class="card-img-top col" alt="Vanilla cake">
+      <div class="card-body">
+        <h5 class="card-title">Vanilla Cake </h5>
+        <p class="card-text">A yummy Vanilla birthday cake theme. Very rich and delicious and loads of flavour.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="./assets/images/chocolate.png" class="card-img-top col" alt="Chocolate Cake">
+      <div class="card-body">
+        <h5 class="card-title">Chocolate Cake</h5>
+        <p class="card-text">Rich chocolate icing, this is our number 1 seller.</p>
+        <p class="card-text"><small class="text-muted">Last updated 4 mins ago</small></p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="./assets/images/strawberry.png" class="card-img-top col" alt="Strawberry Cake">
+      <div class="card-body">
+        <h5 class="card-title">Strawberry Cake</h5>
+        <p class="card-text">The perfect cake to celebrate any occasion.</p>
+        <p class="card-text"><small class="text-muted">Last updated 5 mins ago</small></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-5 row">
+    <div class="col">
+      <h2 class="mt-6">Recent Orders</h2>
+      <ul class="post-list">
+
+        {{#each posts as |post|}}
+        <li class="col">
+          {{> post-info post }}
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>

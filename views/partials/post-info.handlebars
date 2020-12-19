@@ -1,11 +1,17 @@
 <article class="post">
   <div class="title">
-    <a href="{{post_url}}" target="_blank">{{title}}</a>
-    <span>({{format_url post_url}})</span>
+    <a href="/gallery/post/{{id}}">{{title}}</a>
+    <span>(pickup date: {{format_date_2 pickup_date}})</span>
   </div>
   <div class="meta">
-    {{vote_count}} {{format_plural "point" vote_count}} by {{user.username}} on {{format_date created_at}}
+
+
+    Order created on {{format_date_1 created_at}} by {{user.username}}
     |
-    <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+    <a href="/gallery/post/{{id}}">{{vote_count}} {{format_plural "like" vote_count}}</a>
+    |
+    <a href="/gallery/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+
+
   </div>
 </article>

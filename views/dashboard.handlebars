@@ -1,23 +1,51 @@
+<h5 class="mb-4">👋 Hello, {{session.username}}</h5>
 <section>
-  <h2>Create New Post</h2>
+  <h2>Create A Cake Order</h2>
 
-  <form class="new-post-form">
-    <div>
-      <label for="post-title">Title</label>
-      <input type="text" id="post-title" name="post-title" />
+  <form class="container new-post-form">
+    <div class="row align-items-start">
+      <div class="col-md-4">
+        <label for="post-title" class="mt-2">Choose Cake Flavour</label>
+        {{!-- <input type="text" id="post-title" name="post-title" /> --}}
+        <select class="browser-default custom-select" name="flavour" id="flavour">
+          <option selected>Flavour Menu</option>
+          <option value="Chocolate">Chocolate 🌟</option>
+          <option value="Vanilla">Vanilla</option>
+          <option value="Strawberry">Strawberry</option>
+          <option value="Butterscotch">Butterscotch 🆕</option>
+          <option value="Matcha">Matcha 🆕</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <label for="post-title" class="mt-2">Choose Cake Category</label>
+        <select class="browser-default custom-select" name="category" id="category">
+          <option selected>Category Menu</option>
+          <option value="Cake">Cake 🌟</option>
+          <option value="Cheesecake">Cheesecake</option>
+          <option value="Mille Crepe">Mille Crepe</option>
+          <option value="Swiss Roll">Swiss Roll</option>
+          <option value="Tiramisu">Tiramisu</option>
+        </select>
+      </div>
+
+      <div class="col-md-4 form-group">
+        <label for="pickup-date" class="mt-2">Pick-up Date</label>
+        <input type="text" id="pickup-date" name="pickup-date" placeholder="mm/dd/yyyy" autocomplete="off"
+          class="browser-default custom-select" />
+        {{!-- <button type="submit" class="submit-btn mt-5">Submit Order</button> --}}
+      </div>
     </div>
-    <div>
-      <label for="post-url">Link</label>
-      <input id="post-url" name="post-url" />
+    <div class="row">
+      <button type="submit" class="submit-btn mt-2">Submit Order</button>
     </div>
-    <button type="submit" class="btn">Create</button>
   </form>
+
 </section>
 
 {{#if posts.length}}
 <section>
-  <h2>Your Posts</h2>
-  <ol>
+  <h2 class="order-title mt-5">Your History Orders</h2>
+  <ol class="order-ol">
     {{#each posts as |post|}}
     <li>
       {{> post-info post}}
@@ -28,4 +56,10 @@
 </section>
 {{/if}}
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js"></script>
 <script src="/javascript/add-post.js"></script>

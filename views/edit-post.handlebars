@@ -1,35 +1,70 @@
 <article>
   <a href="/dashboard"> &larr; Back to dashboard</a>
-  <h2>
-    Edit Post
+  <h2 class="pt-3">
+    Edit Your Order <span class="current-order">(Previous: {{post.title}})</span>
   </h2>
+
   <form class="edit-post-form">
-    <div>
-      <input name="post-title" type="text" value="{{post.title}}" />
-      <span>({{format_url post.post_url}})</span>
-    </div>
-    <div>
-      {{post.vote_count}} {{format_plural "point" post.vote_count}} by you on {{format_date post.created_at}}
-      |
-      <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
-    </div>
-    <button type="submit">Save post</button>
-    <button type="button" class="delete-post-btn">Delete post</button>
+
+    <form class="container edit-post-form">
+      <div class="row align-items-start">
+        <div class="col-md-4">
+          <label for="post-title" class="mt-4">Change Cake Flavour</label>
+          {{!-- <input type="text" id="post-title" name="post-title" /> --}}
+          <select class="browser-default custom-select" name="flavour" id="flavour">
+            <option selected>Select Flavour</option>
+            <option value="Chocolate">Chocolate 🌟</option>
+            <option value="Vanilla">Vanilla</option>
+            <option value="Strawberry">Strawberry</option>
+            <option value="Butterscotch">Butterscotch 🆕</option>
+            <option value="Matcha">Matcha 🆕</option>
+          </select>
+
+        </div>
+        <div class="col-md-4">
+          <label for="post-title" class="mt-4">Change Cake Category</label>
+          <select class="browser-default custom-select" name="category" id="category">
+            <option selected>Select Category</option>
+            <option value="Cake">Cake 🌟</option>
+            <option value="Cheesecake">Cheesecake</option>
+            <option value="Mille Crepe">Mille Crepe</option>
+            <option value="Swiss Roll">Swiss Roll</option>
+            <option value="Tiramisu">Tiramisu</option>
+          </select>
+        </div>
+
+        <div class="col-md-4 form-group">
+          <label for="pickup-date" class="mt-4">Pick-up Date</label>
+          <input type="text" id="pickup-date" name="pickup-date" placeholder="Select Pickup Date" autocomplete="off"
+            class="custom-select" value="{{post.pickup_date}}" />
+        </div>
+      </div>
+      <div class="row">
+        <button type="submit" class="edit-btn mt-2">Save Changes</button>
+        <button type="button" class="delete-post-btn mt-2">Delete Order</button>
+      </div>
+      <div class="row">
+        <div class="order-sum mt-2">
+          Order created on {{format_date_1 post.created_at}}
+          <br>
+          {{post.vote_count}} {{format_plural "like" post.vote_count}}
+          |
+          <a href="/gallery/post/{{post.id}}">{{post.comments.length}}
+            {{format_plural "comment" post.comments.length}}</a>
+        </div>
+      </div>
+    </form>
+
   </form>
+
 </article>
 
-<form class="comment-form">
-  <div>
-    <textarea name="comment-body"></textarea>
-  </div>
-
-  <div>
-    <button type="submit">add comment</button>
-  </div>
-</form>
-
-{{> comments post.comments}}
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js"></script>
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>
-<script src="/javascript/comment.js"></script>
+{{!-- <script src="/javascript/comment.js"></script> --}}
